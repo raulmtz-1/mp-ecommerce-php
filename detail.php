@@ -113,6 +113,42 @@
                                     </div>
 
                                 </div>
+                                <?php
+                                // SDK de Mercado Pago
+                                require __DIR__ .  '/vendor/autoload.php';
+
+                                // Agrega credenciales
+                                MercadoPago\SDK::setAccessToken('APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389');
+
+                                // Crea un objeto de preferencia
+                                $preference = new MercadoPago\Preference();
+
+                                // Crea un ítem en la preferencia
+                                $item = new MercadoPago\Item();
+                                $item->title = $_POST['title'];
+                                $item->quantity = $_POST['unit'];
+                                $item->unit_price = $_POST['price'];
+                                
+                                $payer = new MercadoPago\Payer();
+                                  $payer->name = "Lalo";
+                                  $payer->surname = "Landa";
+                                  $payer->email = "test_user_58295862@testuser.com";
+                                  $payer->date_created = "";
+                                  $payer->phone = array(
+                                    "area_code" => "+52",
+                                    "number" => "55 49737300"
+                                  );
+                                  $payer->address = array(
+                                    "street_name" => "Insurgentes Sur",
+                                    "street_number" => 1602,
+                                    "zip_code" => "03940"
+                                  );
+                                $data=array($item);
+                                $preference->items = $data;
+                                $preference->payer = $payer;
+                                $preference->save();
+                                print_r($preference):
+                                ?>
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
