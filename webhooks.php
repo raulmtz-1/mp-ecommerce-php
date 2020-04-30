@@ -1,5 +1,5 @@
 <?php
-    MercadoPago\SDK::setAccessToken("ENV_ACCESS_TOKEN");
+    MercadoPago\SDK::setAccessToken("APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389");
 
     $merchant_order = null;
 
