@@ -147,7 +147,7 @@
                                 $preference->items = $data;
                                 $preference->payer = $payer;
                                 $preference->save();
-                                print_r($preference):
+                                //print_r($preference):
                                 ?>
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
