@@ -158,7 +158,7 @@
                                     "failure" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/failure.php",
                                     "pending" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/pending.php"
                                 );
-                                $preference->auto_return = "approved";
+                                $preference->auto_return = "all";
 
                                 //print_r($preference);
                                 /*$preference->payment_methods = array(
@@ -187,14 +187,14 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    
+                                    <form action="https://raulmtz-1-mp-commerce-php.herokuapp.com/config.php"  method="POST">
                                       <script
                                        src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                        data-preference-id="<?php echo $preference->id; ?>"
                                        data-button-label="Pagar la compra"
                                        data-header-color="#2D3277">
                                       </script>
-                                    
+                                    </form>
                                     
                                 </div>
                             </div>
