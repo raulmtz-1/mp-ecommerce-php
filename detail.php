@@ -158,6 +158,7 @@
                                     "pending" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/pending.php"
                                 );
                                 $preference->auto_return = "approved";
+                                $preference->notification_url= "https://raulmtz-1-mp-commerce-php.herokuapp.com/webhooks.php";
 
                                 //print_r($preference);
                                 $preference->payment_methods = array(
