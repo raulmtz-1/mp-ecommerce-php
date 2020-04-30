@@ -1,4 +1,5 @@
 <?php
+require __DIR__ .  '/vendor/autoload.php';
     MercadoPago\SDK::setAccessToken("APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389");
 
     $merchant_order = null;
@@ -15,11 +16,14 @@
     }
 
     $paid_amount = 0;
+    //print_r($merchant_order->payments['status']);
+    print("<pre>".print_r($merchant_order,true)."</pre>");
     foreach ($merchant_order->payments as $payment) {
         if ($payment['status'] == 'approved'){
             $paid_amount += $payment['transaction_amount'];
         }
     }
+    print_r($merchant_order->total_amount);
 
     // If the payment's transaction amount is equal (or bigger) than the merchant_order's amount you can release your items
     if($paid_amount >= $merchant_order->total_amount){
