@@ -19,7 +19,7 @@ require __DIR__ .  '/vendor/autoload.php';
             $plan = MercadoPago\Invoice.find_by_id($_GET["id"]);
             break;
     }
-    print_r($plan);
+    //print_r($plan);
     echo "id ".$_GET["id"];
 
 ?>
