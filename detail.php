@@ -125,10 +125,12 @@
 
                                 // Crea un ítem en la preferencia
                                 $item = new MercadoPago\Item();
+                                $item->id = '1234';
                                 $item->title = $_POST['title'];
                                 $item->quantity = $_POST['unit'];
                                 $item->unit_price = $_POST['price'];
-                                
+                                $item->description = 'Dispositivo móvil de Tienda e-commerce';
+                                $item->picture_url = $_POST['img'];
                                 $payer = new MercadoPago\Payer();
                                   $payer->name = "Lalo";
                                   $payer->surname = "Landa";
@@ -143,20 +145,28 @@
                                     "street_number" => 1602,
                                     "zip_code" => "03940"
                                   );
-                                $payment = new MercadoPago\Payment();
-                                $payment->transaction_amount = 141;
-                                $payment->token = $this->SingleUseCardToken('approved');
-                                $payment->description = "Ergonomic Silk Shirt";
-                                $payment->installments = 1;
-                                $payment->payment_method_id = "visa";
-                                $payment->payer = array(
-                                    "email" => "larue.nienow@hotmail.com"
-                                );
-                                $payment->external_reference = "reftest";
+                                
                                 $data=array($item);
                                 $preference->items = $data;
                                 $preference->payer = $payer;
                                 $preference->payment = $payment;
+                                $preference->external_reference = 'ABCD1234';
+
+
+                                $preference->back_urls = array(
+                                    "success" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/success.php",
+                                    "failure" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/failure.php",
+                                    "pending" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/pending.php"
+                                );
+                                $preference->auto_return = "approved";
+
+                                //print_r($preference);
+                                /*$preference->payment_methods = array(
+                                  "excluded_payment_types" => array(
+                                    array("id" => "credit_card")
+                                  ),
+                                  "installments" => 3
+                                );*/
                                 $preference->save();
                                 //print_r($preference):
                                 ?>
