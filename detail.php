@@ -169,7 +169,7 @@
                                     array("id" => "amex")
                                   ),
                                   "installments" => 6
-                                )
+                                );
                                 $preference->save();
                                 //print_r($preference):
                                 ?>
