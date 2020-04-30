@@ -167,6 +167,7 @@
                                   ),
                                   "excluded_payment_methods" => array(
                                     array("id" => "amex")
+                                  ),
                                   "installments" => 6
                                 )
                                 $preference->save();
