@@ -158,15 +158,17 @@
                                     "failure" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/failure.php",
                                     "pending" => "https://raulmtz-1-mp-commerce-php.herokuapp.com/pending.php"
                                 );
-                                $preference->auto_return = "all";
+                                $preference->auto_return = "approved";
 
                                 //print_r($preference);
-                                /*$preference->payment_methods = array(
+                                $preference->payment_methods = array(
                                   "excluded_payment_types" => array(
-                                    array("id" => "credit_card")
+                                    array("id" => "atm")
                                   ),
-                                  "installments" => 3
-                                );*/
+                                  "excluded_payment_methods" => array(
+                                    array("id" => "amex")
+                                  "installments" => 6
+                                )
                                 $preference->save();
                                 //print_r($preference):
                                 ?>
