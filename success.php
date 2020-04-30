@@ -114,7 +114,7 @@
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2">El pago ha sido sido Exitoso</span>
+                                                    <span data-ase-truncate="2">El pago ha sido sido Exitoso.</span>
                                                 </p>
 
                                             </h3>
