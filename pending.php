@@ -99,7 +99,7 @@
                                         <div class="as-isdesktop with-paddlenav with-paddlenav-onhover">
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                                 <div class="as-tilegallery-element as-image-selected">
-                                                    <div class=""></div>
+                                                    <div class="">Su pago esta pendiente o en proceso</div>
                                                 </div>
                                                 
                                             </div>

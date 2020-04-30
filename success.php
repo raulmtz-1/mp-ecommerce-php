@@ -99,16 +99,37 @@
                                         <div class="as-isdesktop with-paddlenav with-paddlenav-onhover">
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                                 <div class="as-tilegallery-element as-image-selected">
-                                                    <div class=""></div>
+                                                    <div class="">El pago ha sido sido Exitoso</div>
                                                 </div>
                                                 
                                             </div>
-
-                                            
                                         </div>
+                                        <?php
+                                        $_url='https://api.mercadopago.com/v1/payments/'.$_GET['collection_id'].'?access_token=APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389';
+                                        $response=CurlGet($_url);
+                                        $payment_method_id=$response['payment_method_id'];
+                                        $transaction_amount=$response['transaction_amount'];
+                                        $external_reference=$response['external_reference'];
+                                        $id=$response['id'];
+                                        //print("<pre>".print_r($response['payment_method_id'],true)."</pre>");
+                                        //print_r($response);
 
-                                        
-
+                                        ?>
+                                        <h3 >
+                                            <?php echo "Metodo de pago: ".$payment_method_id ?>
+                                        </h3>
+                                        <h3 >
+                                            <?php echo "Monto pagado: ".$transaction_amount ?>
+                                        </h3>
+                                        <h3 >
+                                            <?php echo "# Orden: ".$external_reference ?>
+                                        </h3>
+                                        <h3 >
+                                            <?php echo "Id del pago: ".$id ?>
+                                        </h3>
+                                        <h3 style="display: none">
+                                            <?php echo "preference: ".$_GET['collection_id']?>
+                                        </h3>
                                     </div>
 
                                 </div>
@@ -144,3 +165,22 @@
         </div>
 
 </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div id="ac-gn-viewport-emitter"> </div></body></html>
+
+
+<?php 
+function CurlGet($_url){
+        $curl = curl_init();
+        $headers = array( 
+            "Content-type: application/json",
+        );
+
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); 
+        curl_setopt($curl, CURLOPT_URL, $_url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); 
+        $response = json_decode(curl_exec($curl),true);
+        curl_close($curl);
+        return $response;
+        
+    } 
+
+?>

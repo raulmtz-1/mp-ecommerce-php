@@ -137,8 +137,8 @@
                                   $payer->email = "test_user_58295862@testuser.com";
                                   $payer->date_created = "";
                                   $payer->phone = array(
-                                    "area_code" => "+52",
-                                    "number" => "55 49737300"
+                                    "area_code" => "52",
+                                    "number" => "5549737300"
                                   );
                                   $payer->address = array(
                                     "street_name" => "Insurgentes Sur",
@@ -171,6 +171,7 @@
                                 );
                                 $preference->save();
                                 //print_r($preference):
+                                
                                 ?>
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
