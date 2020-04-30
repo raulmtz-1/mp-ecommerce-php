@@ -187,14 +187,14 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <form  method="POST">
+                                    
                                       <script
                                        src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                        data-preference-id="<?php echo $preference->id; ?>"
                                        data-button-label="Pagar la compra"
                                        data-header-color="#2D3277">
                                       </script>
-                                    </form>
+                                    
                                     
                                 </div>
                             </div>
