@@ -149,7 +149,6 @@
                                 $data=array($item);
                                 $preference->items = $data;
                                 $preference->payer = $payer;
-                                $preference->payment = $payment;
                                 $preference->external_reference = 'ABCD1234';
 
 
