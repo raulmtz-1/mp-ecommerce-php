@@ -77,7 +77,7 @@
 
                                     <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
                                         <h2 class=" as-filter-button-text">
-                                            Smartphones
+                                            Pending
                                         </h2>
                                     </button>
 
@@ -100,7 +100,6 @@
                                             <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
                                                 <div class="as-tilegallery-element as-image-selected">
                                                     <div class=""></div>
-                                                    <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url(<?php echo $_POST['img'] ?>) 2x);">
                                                 </div>
                                                 
                                             </div>
@@ -113,78 +112,20 @@
                                     </div>
 
                                 </div>
-                                <?php
-                                // SDK de Mercado Pago
-                                require __DIR__ .  '/vendor/autoload.php';
-
-                                // Agrega credenciales
-                                MercadoPago\SDK::setAccessToken('APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389');
-
-                                // Crea un objeto de preferencia
-                                $preference = new MercadoPago\Preference();
-
-                                // Crea un ítem en la preferencia
-                                $item = new MercadoPago\Item();
-                                $item->title = $_POST['title'];
-                                $item->quantity = $_POST['unit'];
-                                $item->unit_price = $_POST['price'];
                                 
-                                $payer = new MercadoPago\Payer();
-                                  $payer->name = "Lalo";
-                                  $payer->surname = "Landa";
-                                  $payer->email = "test_user_58295862@testuser.com";
-                                  $payer->date_created = "";
-                                  $payer->phone = array(
-                                    "area_code" => "+52",
-                                    "number" => "55 49737300"
-                                  );
-                                  $payer->address = array(
-                                    "street_name" => "Insurgentes Sur",
-                                    "street_number" => 1602,
-                                    "zip_code" => "03940"
-                                  );
-                                $payment = new MercadoPago\Payment();
-                                $payment->transaction_amount = 141;
-                                $payment->token = $this->SingleUseCardToken('approved');
-                                $payment->description = "Ergonomic Silk Shirt";
-                                $payment->installments = 1;
-                                $payment->payment_method_id = "visa";
-                                $payment->payer = array(
-                                    "email" => "larue.nienow@hotmail.com"
-                                );
-                                $payment->external_reference = "reftest";
-                                $data=array($item);
-                                $preference->items = $data;
-                                $preference->payer = $payer;
-                                $preference->payment = $payment;
-                                $preference->save();
-                                //print_r($preference):
-                                ?>
                                 <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                     <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
+                                                    <span data-ase-truncate="2"><?php print_r($_POST) ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
-                                        <h3 >
-                                            <?php echo $_POST['price'] ?>
-                                        </h3>
-                                        <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
-                                        </h3>
+                                        
                                     </div>
-                                    <form  method="POST">
-                                      <script
-                                       src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-                                       data-preference-id="<?php echo $preference->id; ?>"
-                                       data-button-label="Pagar la compra"
-                                       data-header-color="#2D3277">
-                                      </script>
-                                    </form>
+                                    
                                     
                                 </div>
                             </div>
