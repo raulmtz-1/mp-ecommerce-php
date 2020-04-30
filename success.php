@@ -145,7 +145,7 @@
                                         <?php echo "Id del pago: ".$id ?>
                                     </h3>
                                     <h3 style="display: none">
-                                        <?php echo "preference: ".$_GET['collection_id']?>
+                                        <?php echo "preference: ".$_GET['preference_id']?>
                                     </h3>
                                     
                                 </div>
