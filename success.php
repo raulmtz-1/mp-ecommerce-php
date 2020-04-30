@@ -104,32 +104,7 @@
                                                 
                                             </div>
                                         </div>
-                                        <?php
-                                        $_url='https://api.mercadopago.com/v1/payments/'.$_GET['collection_id'].'?access_token=APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389';
-                                        $response=CurlGet($_url);
-                                        $payment_method_id=$response['payment_method_id'];
-                                        $transaction_amount=$response['transaction_amount'];
-                                        $external_reference=$response['external_reference'];
-                                        $id=$response['id'];
-                                        //print("<pre>".print_r($response['payment_method_id'],true)."</pre>");
-                                        //print_r($response);
-
-                                        ?>
-                                        <h3 >
-                                            <?php echo "Metodo de pago: ".$payment_method_id ?>
-                                        </h3>
-                                        <h3 >
-                                            <?php echo "Monto pagado: ".$transaction_amount ?>
-                                        </h3>
-                                        <h3 >
-                                            <?php echo "# Orden: ".$external_reference ?>
-                                        </h3>
-                                        <h3 >
-                                            <?php echo "Id del pago: ".$id ?>
-                                        </h3>
-                                        <h3 style="display: none">
-                                            <?php echo "preference: ".$_GET['collection_id']?>
-                                        </h3>
+                                        
                                     </div>
 
                                 </div>
@@ -139,14 +114,39 @@
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php print_r($_GET) ?></span>
+                                                    <span data-ase-truncate="2">El pago ha sido sido Exitoso</span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         
                                     </div>
-                                    
+                                    <?php
+                                    $_url='https://api.mercadopago.com/v1/payments/'.$_GET['collection_id'].'?access_token=APP_USR-6588866596068053-041607-428a530760073a99a1f2d19b0812a5b6-491494389';
+                                    $response=CurlGet($_url);
+                                    $payment_method_id=$response['payment_method_id'];
+                                    $transaction_amount=$response['transaction_amount'];
+                                    $external_reference=$response['external_reference'];
+                                    $id=$response['id'];
+                                    //print("<pre>".print_r($response['payment_method_id'],true)."</pre>");
+                                    //print_r($response);
+
+                                    ?>
+                                    <h3 >
+                                        <?php echo "Metodo de pago: ".$payment_method_id ?>
+                                    </h3>
+                                    <h3 >
+                                        <?php echo "Monto pagado: ".$transaction_amount ?>
+                                    </h3>
+                                    <h3 >
+                                        <?php echo "# Orden: ".$external_reference ?>
+                                    </h3>
+                                    <h3 >
+                                        <?php echo "Id del pago: ".$id ?>
+                                    </h3>
+                                    <h3 style="display: none">
+                                        <?php echo "preference: ".$_GET['collection_id']?>
+                                    </h3>
                                     
                                 </div>
                             </div>
